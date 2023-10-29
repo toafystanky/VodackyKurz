@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registrace</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/registration.css">
+    <script src="../static/js/registration.js">
+
+    </script>
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="mb-4">Registrace</h1>
+    <form id="registration-form" method="post" action="/registrace">
+        <div class="mb-3">
+            <label for="name" class="form-label">Jméno:</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+            <span id="name-warning" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="last_name" class="form-label">Příjmení:</label>
+            <input type="text" id="last_name" name "last_name" class="form-control" required>
+            <span id="last-name-warning" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="nick" class="form-label">Přezdívka osoby:</label>
+            <input type="text" id="nick" name="nick" class="form-control" required pattern="[A-Za-z0-9]{2,20}">
+            <span id="nickname-warning" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">E-mail:</label>
+            <input type="email" id="email" name="email" class="form-control">
+            <span id="email-warning" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="je_plavec" class="form-label">Zda-li osoba umí plavat:</label>
+            <select id="je_plavec" name="je_plavec" class="form-select" required>
+                <option value="1">Ano</option>
+                <option value="0">Ne</option>
+            </select>
+            <span id="swimmer-warning" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="kanoe_kamarad" class="form-label">S kým by osoba chtěla být na lodi:</label>
+            <input type="text" id="kanoe_kamarad" name="kanoe_kamarad" class="form-control" pattern="[A-Za-z0-9]{2,20}">
+            <span id="kanoe-warning" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="class" class="form-label">Třída:</label>
+            <select id="class" name="class" class="form-select">
+                <option value="C4a">C4a</option>
+                <option value="C4c">C4c</option>
+                <option value="C4b">C4b</option>
+                <option value="A4">A4</option>
+                <option value="E4">E4</option>
+            </select>
+        </div>
+
+        <div class="btn-group">
+            <button type="submit" class="btn btn-primary">Odeslat</button>
+            <button class="btn btn-secondary" onclick="goBack()">Zpět</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

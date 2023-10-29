@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rozsazení v lodích na vodáckém kurzu 2023 SPŠE Ječná</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/index.css">
+
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-4">Rozsazení v lodích na vodáckém kurzu 2023 SPŠE Ječná</h1>
+
+    <h2 class="mt-4">Registrovaní účastníci</h2>
+    {% if participants %}
+
+    <div class="participant-list">
+        {% for participant in participants %}
+        <div class="card participant-card">
+            <h4 class="mb-4">Přezdívka: {{ participant['nickname'] }}</h4>
+            <p class="mb-2">Jméno: {{ participant['name'] }}</p>
+            <p class="mb-2">Příjmení: {{ participant['last_name'] }}</p>
+            <p class="mb-2">Třída: {{ participant['class_name'] }}</p>
+            <p class="mb-2">Plavec: {{ 'Ano' if participant['is_swimmer'] == '1' else 'Ne' }}</p>
+            {% if participant['canoe_companion'] %}
+            <p class="mb-2">Kanoe společník: {{ participant['canoe_companion'] }}</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>Zatím nejsou žádní registrovaní uživatelé.</p>
+    {% endif %}
+
+    <div class="button-group">
+        <a class="btn btn-primary" href="/registrace">Registrovat se</a>
+        <a class = "btn btn-info" href="/classes">Výpis podle tříd</a>
+        <a class="btn btn-success" href="/recenze">Zanech recenzi</a>
+    </div>
+</div>
+</body>
+</html>
